@@ -14,7 +14,7 @@ set encoding=utf-8
 call plug#begin('~/.vim/plugged')
 Plug 'goatslacker/mango.vim'
 Plug 'kana/vim-altr'
-
+Plug 'ervandew/supertab'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
@@ -23,7 +23,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'ElmCast/elm-vim'
 Plug 'vito-c/jq.vim'
 Plug 'ocaml/vim-ocaml'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim', {'pinned': 1}
@@ -40,8 +40,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 " set foldmethod=indent
 " set foldlevel=0
 " set foldnestmax=2
-nnoremap <silent> ,n :call NextClosedFold('j')<cr>zz
-nnoremap <silent> ,p :call NextClosedFold('k')<cr>zz
 nnoremap <SPACE> :
 nnoremap <PageUp> <C-u>
 nnoremap <PageDown> <C-d>
@@ -85,16 +83,16 @@ set completeopt=menuone,menu,longest
 " Leader
 " Make space leader.
 let mapleader=","
-let maplocalleader=",m"
+let maplocalleader=",<F10>"
 noremap , <Nop>
 
 
-noremap <Leader>1 :buffer 1<CR>
-noremap <Leader>2 :buffer 2<CR>
-noremap <Leader>3 :buffer 3<CR>
-noremap <Leader>4 :buffer 4<CR>
-noremap <Leader>5 :buffer 5<CR>
-noremap <Leader>6 :buffer 6<CR>
+noremap ,1 :buffer 1<CR>
+noremap ,2 :buffer 2<CR>
+noremap ,3 :buffer 3<CR>
+noremap ,4 :buffer 4<CR>
+noremap ,5 :buffer 5<CR>
+noremap ,6 :buffer 6<CR>
 
 " some more folding
 " autocmd FileType ocaml noremap ,, :bn<CR>
@@ -116,39 +114,39 @@ noremap M :bp<CR>:echo " "<CR>
 
 inoremap ,. <C-x><C-o>
 
-nnoremap <Leader>m :bn<CR>:echo " "<CR>
-nnoremap <Leader>M :bp<CR>:echo " "<CR>
-noremap <Leader>w :w<CR>
-noremap <Leader>o :only<CR>
+nnoremap ,m :bn<CR>:echo " "<CR>
+nnoremap ,M :bp<CR>:echo " "<CR>
+noremap ,w :w<CR>
+noremap ,o :only<CR>
 inoremap yw :w<CR>
-noremap <Leader>q :qa!<CR>
-noremap <Leader>s :%s/
-noremap <Leader><Tab> :bn<CR>
-noremap <Leader>vv :e ~/.vimrc<CR>
-noremap <Leader>x  :x<CR>
-noremap <Leader>vs :so ~/.vimrc<CR>
-noremap <Leader>d <C-w>j:close<CR>:echo " "<CR>
-noremap <Leader>D <C-w>k:close<CR>:echo " "<CR>
-noremap <Leader>z :bd<CR>:echo " "<CR>
-noremap <Leader>r <Nop>
-noremap <Leader>E :Exp<CR>
-noremap <Leader>i :vsplit<CR>:echo " "<CR>
-noremap <Leader>e :split<CR>:echo " "<CR>
-noremap <Leader>* :vertical ball<CR>
-noremap <Leader>a g<C-g>
+noremap ,q :qa!<CR>
+noremap ,s :%s/
+noremap ,<Tab> :bn<CR>
+noremap ,vv :e ~/.vimrc<CR>
+noremap ,x  :x<CR>
+noremap ,vs :so ~/.vimrc<CR>
+noremap ,d <C-w>j:close<CR>:echo " "<CR>
+noremap ,D <C-w>k:close<CR>:echo " "<CR>
+noremap ,z :bd<CR>:echo " "<CR>
+noremap ,r <Nop>
+noremap ,E :Exp<CR>
+noremap ,i :vsplit<CR>:echo " "<CR>
+noremap ,e :split<CR>:echo " "<CR>
+noremap ,* :vertical ball<CR>
+noremap ,a g<C-g>
 vnoremap <Backspace> :Commentary<CR>
-noremap <Leader>c :Commentary<CR>:echo " "<CR>
-noremap <Leader>g :Gblame<CR>
-noremap <Leader><ESC> :bd<CR>:echo " "<CR>
-noremap <Leader>` <C-w>j:close<CR>
-noremap <Leader>` <C-w>j:close<CR>
-" noremap <Leader><Leader> :w<CR>
+noremap ,c :Commentary<CR>:echo " "<CR>
+noremap ,g :Gblame<CR>
+noremap ,<ESC> :bd<CR>:echo " "<CR>
+noremap ,` <C-w>j:close<CR>
+noremap ,` <C-w>j:close<CR>
+" noremap ,, :w<CR>
 
-noremap <Leader>r :!clear;make<CR>
+noremap ,r :!clear;make<CR>
 
 " pretty awesome:
-noremap <Leader>ve ^i <ESC>vk$s
-noremap <Leader>vn a<CR><ESC>
+noremap ,ve ^i <ESC>vk$s
+noremap ,vn a<CR><ESC>
 
 "" Remapping
 
@@ -169,14 +167,14 @@ noremap v <C-v>
 " Moving around
 nmap do ddeo
 
-nmap <Leader>j <C-w>j
-nmap <Leader>k <C-w>k
-nmap <Leader>l <C-w>l
-nmap <Leader>h <C-w>h
-nmap <Leader>J <C-w>J
-nmap <Leader>K <C-w>K
-nmap <Leader>L <C-w>L
-nmap <Leader>H <C-w>H
+nmap ,j <C-w>j
+nmap ,k <C-w>k
+nmap ,l <C-w>l
+nmap ,h <C-w>h
+nmap ,J <C-w>J
+nmap ,K <C-w>K
+nmap ,L <C-w>L
+nmap ,H <C-w>H
 
 nnoremap <S-o> o<ESC>
 
@@ -219,7 +217,7 @@ let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_imports_autosave = 1
 let g:go_doc_keywordprg_enabled = 0
-au FileType go nmap <leader>r <Plug>(go-test)
+au FileType go nmap ,r <Plug>(go-test)
 
 ab pdb import pdb; pdb.set_trace()
 
@@ -228,7 +226,7 @@ au FileType py set tabstop=8
 au FileType py set expandtab
 au FileType py set softtabstop=4
 au FileType py set shiftwidth=4
-au FileType py nmap <leader>r <Plug>(go-test)
+au FileType py nmap ,r <Plug>(go-test)
 
 " Rust
 
@@ -305,13 +303,10 @@ imap YW <ESC>
 
 " Commentary
 autocmd FileType sml setlocal commentstring=(*\ %s\ *)
-noremap <Leader>n :Files<CR>
+noremap ,n :Files<CR>
 
 " let &colorcolumn=join(range(81,999),",")
 " highlight ColorColumn ctermbg=253
-abbreviate pry require 'pry'; binding.pry
-abbreviate qt (raise (Failure "unimplemented"))
-abbreviate qp (* *)<Left><Left><Left>
 
 " Stuff for talk
 set noruler
@@ -338,37 +333,37 @@ nnoremap U <C-r>
 let &t_SI="\033[5 q" " start insert mode
 let &t_EI="\033[1 q" " end insert mode
 
-" " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-" let s:opam_share_dir = system("opam config var share")
-" let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-" 
-" let s:opam_configuration = {}
-" 
-" function! OpamConfOcpIndent()
-"   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-" endfunction
-" let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-" 
-" function! OpamConfOcpIndex()
-"   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-" endfunction
-" let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-" 
-" function! OpamConfMerlin()
-"   let l:dir = s:opam_share_dir . "/merlin/vim"
-"   execute "set rtp+=" . l:dir
-" endfunction
-" let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-" 
-" let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-" let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-" let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-" for tool in s:opam_packages
-"   " Respect package order (merlin should be after ocp-index)
-"   if count(s:opam_available_tools, tool) > 0
-"     call s:opam_configuration[tool]()
-"   endif
-" endfor
-" " ## end of OPAM user-setup addition for vim / base ## keep this line
-" "
+ " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+ let s:opam_share_dir = system("opam config var share")
+ let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+ 
+ let s:opam_configuration = {}
+ 
+ function! OpamConfOcpIndent()
+   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+ endfunction
+ let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+ 
+ function! OpamConfOcpIndex()
+   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+ endfunction
+ let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+ 
+ function! OpamConfMerlin()
+   let l:dir = s:opam_share_dir . "/merlin/vim"
+   execute "set rtp+=" . l:dir
+ endfunction
+ let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+ 
+ let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+ let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+ let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+ for tool in s:opam_packages
+   " Respect package order (merlin should be after ocp-index)
+   if count(s:opam_available_tools, tool) > 0
+     call s:opam_configuration[tool]()
+   endif
+ endfor
+ " ## end of OPAM user-setup addition for vim / base ## keep this line
+ "
 " 

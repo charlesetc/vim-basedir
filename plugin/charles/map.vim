@@ -53,7 +53,7 @@ nnoremap ,d <C-w>j:close<CR>
 nnoremap <C-h> <C-w>h:close<CR>
 nnoremap <C-l> <C-w>l:close<CR>
 nnoremap ,D <C-w>k:close<CR>
-nnoremap ,z :Bdelete!<cr>
+nnoremap ,z :bdelete!<cr>
 nnoremap ,w :w<CR>
 nnoremap ,x :x<CR>
 nnoremap ,q :qa!<CR>
@@ -86,7 +86,7 @@ nnoremap U :redo<CR>
 " Merlin
 nnoremap ,t :MerlinTypeOf<CR>
 nnoremap ,g :MerlinLocate<CR>
-nnoremap ,r :MerlinLocateMli<CR>
+nnoremap ,r :MerlinLocateIntf<CR>,p
 vnoremap ,t @:MerlinTypeOfSel<CR>
 nnoremap ,T :MerlinDocument<CR>
 nnoremap ,y :MerlinYankLatestType<CR>
@@ -148,13 +148,14 @@ nnoremap ,vj :so ~/.vimrc<CR>
 
 " Zsh
 nnoremap ,vz :e ~/.zshrc<CR>
+nnoremap - :e %:h<CR>
 
 " Comments
-nnoremap  ,c :call NERDComment("n", "toggle")<cr>
-vnoremap  ,c :call NERDComment("v", "toggle")<cr>
-nnoremap  ,C :call NERDComment("n", "minimal")<cr>
-vnoremap  ,C :call NERDComment("v", "minimal")<cr>
-let g:NERDTrimTrailingWhitespace = 1
+" nnoremap  ,c :call NERDComment("n", "toggle")<cr>
+" vnoremap  ,c :call NERDComment("v", "toggle")<cr>
+" nnoremap  ,C :call NERDComment("n", "minimal")<cr>
+" vnoremap  ,C :call NERDComment("v", "minimal")<cr>
+" let g:NERDTrimTrailingWhitespace = 1
 
 " Quickfixlist that loops!
 command! Cnext try | cnext | catch | cfirst | catch | endtry

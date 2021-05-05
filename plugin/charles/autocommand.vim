@@ -69,7 +69,3 @@ endif
 
 au! BufRead,BufEnter term://* startinsert!
 
-" ===== Altr =====
-
-call altr#remove_all()
-call altr#define('%.ml', '%_intf.ml', '%.mli')

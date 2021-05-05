@@ -46,7 +46,7 @@ let g:markdown_fenced_languages = ['ocaml', 'bash=sh', 'python', 'html']
 set nornu
 set nonu
 set nohlsearch
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set ic
 set nogdefault
 set splitright

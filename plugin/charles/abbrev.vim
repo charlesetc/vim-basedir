@@ -1,6 +1,7 @@
 
 " Comments
 
+abbreviate qp (* *)<Left><Left><Left>
 inoreabbrev qpd   (**<c-o>a *)<c-o>`[
 
 " Bash variable names
